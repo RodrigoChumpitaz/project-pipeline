@@ -36,7 +36,9 @@ services:
       - /app/node_modules
 
   jenkins:
-    image: jenkins/jenkins:lts
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
     container_name: shopimax-jenkins
     restart: always
     privileged: true
