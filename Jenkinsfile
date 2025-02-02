@@ -4,6 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "shopimax-apiv2"
         DOCKER_COMPOSE_FILE = "docker-compose.yml"
+        PORT = "3002"
     }
 
     stages {
