@@ -22,6 +22,7 @@ pipeline {
 
         stage('Run Services') {
             steps {
+                sh 'docker-compose down || true'
                 sh 'docker-compose up -d'
             }
         }
