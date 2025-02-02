@@ -39,7 +39,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.jenkins
-    container_name: shopimax-jenkins
+    container_name: shopimax-jenkins-${BUILD_ID}
     restart: always
     privileged: true
     user: root
@@ -48,6 +48,8 @@ services:
       - '50000:50000'
     networks:
       - shopimax-network
+    environment:
+      - BUILD_ID=${BUILD_ID}
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock

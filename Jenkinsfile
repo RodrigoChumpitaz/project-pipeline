@@ -5,6 +5,7 @@ pipeline {
         IMAGE_NAME = "shopimax-apiv2"
         DOCKER_COMPOSE_FILE = "docker-compose.yml"
         PORT = "3002"
+        BUILD_ID = "${env.BUILD_ID}"
     }
 
     stages {
@@ -22,8 +23,7 @@ pipeline {
 
         stage('Run Services') {
             steps {
-                sh 'docker-compose down || true'
-                sh 'docker-compose up -d'
+                sh "docker-compose up -d --build --env BUILD_ID=${BUILD_ID}"
             }
         }
 
