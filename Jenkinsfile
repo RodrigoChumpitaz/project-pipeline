@@ -23,7 +23,10 @@ pipeline {
 
         stage('Run Services') {
             steps {
-                sh "docker-compose up -d --build --env BUILD_ID=${BUILD_ID}"
+                sh """
+                  export BUILD_ID=${BUILD_ID}
+                  docker-compose up -d --build
+                """
             }
         }
 
