@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "shopimax-apiv2",
+        IMAGE_NAME = "shopimax-apiv2"
         DOCKER_COMPOSE_FILE = "docker-compose.yml"
     }
 
