@@ -7,9 +7,9 @@ pipeline {
     }
 
     stages {
-         stage('Checkout') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/RodrigoChumpitaz/project-pipeline.git'
+                git branch: 'main', url: 'https://github.com/RodrigoChumpitaz/project-pipeline.git'
             }
         }
 
