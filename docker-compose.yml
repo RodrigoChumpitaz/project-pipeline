@@ -45,7 +45,7 @@ services:
     user: root
     ports:
       - '8080'
-      - '50000:50000'
+      # - '50000:50000'
     networks:
       - shopimax-network
     environment:
