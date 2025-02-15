@@ -17,8 +17,9 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker-compose -f docker-compose.override.yml down' // Solo afecta los servicios definidos en este archivo
-                sh 'docker-compose -f docker-compose.override.yml build --no-cache'
+                sh 'docker stop shopimax-apiv2 shopimax-dbv2 || true'
+                sh 'docker rm shopimax-apiv2 shopimax-dbv2 || true'
+                sh 'docker-compose build --no-cache'
             }
         }
 
