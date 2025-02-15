@@ -2,7 +2,7 @@ services:
   mongo:
     image: mongo:7.0
     command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
-    container_name: shopimax-dbv2
+    container_name: shopimax-dbv2$-{BUILD_ID}
     restart: always
     ports:
       - '27017:27017'
