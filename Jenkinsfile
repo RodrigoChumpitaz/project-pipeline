@@ -37,11 +37,11 @@ pipeline {
         //         sh 'docker-compose exec shopimax-apiv2 yarn test'
         //     }
         // }
-        stage('Cleanup') {
-            steps {
-                sh 'docker system prune -f'
-            }
-        }
+        // stage('Cleanup') {
+        //     steps {
+        //         sh 'docker system prune -f'
+        //     }
+        // }
     }
 
     post {
