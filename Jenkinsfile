@@ -17,11 +17,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                // sh 'docker-compose stop shopimax-apiv2 mongo'
-                // sh 'docker-compose rm -f shopimax-apiv2 mongo'
-                sh 'docker-compose down shopimax-apiv2 mongo'
-                sh 'docker-compose build --no-cache'
-                // sh 'docker-compose up -d --force-recreate --no-deps shopimax-apiv2 mongo'
+                sh 'docker-compose -f docker-compose.override.yml down' // Solo afecta los servicios definidos en este archivo
+                sh 'docker-compose -f docker-compose.override.yml build --no-cache'
             }
         }
 
