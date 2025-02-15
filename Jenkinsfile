@@ -17,7 +17,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker-compose down'
+                sh 'docker stop shopimax-apiv2 shopimax-dbv2 || true'
+                // sh 'docker rm shopimax-apiv2 shopimax-dbv2 || true'
                 sh """
                     export BUILD_ID=${BUILD_ID}
                     docker-compose up -d --build
