@@ -17,7 +17,11 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker-compose build --no-cache'
+                // sh 'docker-compose stop shopimax-apiv2 mongo'
+                // sh 'docker-compose rm -f shopimax-apiv2 mongo'
+                // sh 'docker-compose build --no-cache shopimax-apiv2 mongo'
+                // sh 'docker-compose up -d shopimax-apiv2 mongo'
+                'docker-compose up -d --force-recreate --no-deps shopimax-apiv2 mongo'
             }
         }
 

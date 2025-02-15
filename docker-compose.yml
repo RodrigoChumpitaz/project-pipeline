@@ -2,7 +2,7 @@ services:
   mongo:
     image: mongo:7.0
     command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
-    container_name: shopimax-dbv2-${BUILD_ID}
+    container_name: shopimax-dbv2
     restart: always
     ports:
       - '27017:27017'
@@ -19,7 +19,7 @@ services:
   shopimax-apiv2:
     build:
       context: .
-    container_name: shopimax-apiv2-${BUILD_ID}
+    container_name: shopimax-apiv2
     restart: on-failure
     ports:
       - '3002:3002'
