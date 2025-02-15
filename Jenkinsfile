@@ -17,25 +17,25 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker stop shopimax-apiv2 shopimax-dbv2 || true'
-                // sh 'docker rm shopimax-apiv2 shopimax-dbv2 || true'
-                sh """
-                    export BUILD_ID=${BUILD_ID}
-                    docker-compose up -d --build
-                """
+                sh 'docker-compose build --no-cache'
                 // sh 'docker stop shopimax-apiv2 shopimax-dbv2 || true'
-                // sh 'docker rm shopimax-apiv2 shopimax-dbv2 || true'
-                // sh 'docker-compose build --no-cache'
+                // // sh 'docker rm shopimax-apiv2 shopimax-dbv2 || true'
+                // sh """
+                //     export BUILD_ID=${BUILD_ID}
+                //     docker-compose up -d --build
+                // """
+                // // sh 'docker stop shopimax-apiv2 shopimax-dbv2 || true'
+                // // sh 'docker rm shopimax-apiv2 shopimax-dbv2 || true'
+                // // sh 'docker-compose build --no-cache'
             }
         }
 
         stage('Run Services') {
             steps {
-                // sh """
-                //   export BUILD_ID=${BUILD_ID}
-                //   docker-compose up -d --build
-                // """
-                sh 'docker-compose ps'
+                sh """
+                  export BUILD_ID=${BUILD_ID}
+                  docker-compose up -d --build
+                """
             }
         }
 
