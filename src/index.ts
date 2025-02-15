@@ -8,7 +8,7 @@ import { dbConnection, PORT } from './config';
   });
   await dbConnection.default();
   // NUEVO CAMBIO
-  // change by Rodrigo.
+  // change by Rodrigo v2
   // cristian UPDATE
   // await seedAgents();
 })();
