@@ -7,7 +7,7 @@ import { dbConnection, PORT } from './config';
     console.log(`Server is running on port ${PORT}`);
   });
   await dbConnection.default();
-  // NUEVO CAMBIO 
+  // NUEVO CAMBIO ACTUALIZADO 
   // change by Rodrigo.
   // cristian realizo este cambio
   // await seedAgents();
