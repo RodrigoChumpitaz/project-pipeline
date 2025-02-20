@@ -30,11 +30,14 @@ pipeline {
 
         stage('Run Services') {
             steps {
-                sh """
-                  export BUILD_ID=${BUILD_ID}
-                  docker-compose up -d --build
-                """
+                sh 'docker ps -a'
             }
+            // steps {
+            //     sh """
+            //       export BUILD_ID=${BUILD_ID}
+            //       docker-compose up -d --build
+            //     """
+            // }
         }
 
         // stage('Test') {
@@ -49,11 +52,11 @@ pipeline {
         always {
              echo "Ejecutando limpieza: Deteniendo y eliminando contenedores, imágenes y demás recursos..."
             // Detiene y elimina los contenedores definidos en el archivo docker-compose
-            sh 'docker-compose down'
+            // sh 'docker-compose down'
             // Elimina contenedores detenidos
-            sh 'docker container prune -f'
+            // sh 'docker container prune -f'
             // Elimina imágenes que no están en uso (dangling images)
-            sh 'docker image prune -af'
+            // sh 'docker image prune -af'
             // Opcional: eliminar redes y volúmenes huérfanos
             // sh 'docker network prune -f'
             // sh 'docker volume prune -f'
