@@ -1,6 +1,6 @@
 # shopimax-apiv2
 
-## Requisitos
+## Requisitoshola
 
 1. **Instalar dependencias**:
     ```bash
